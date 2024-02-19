@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comandos SQL</title>
+    <style>
+        /* Reset de estilos padrão */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* botao*/
+        /* Seu estilo CSS */
+        /* Estilo para as imagens */
+        .footer-images {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .footer-images img {
+            width: 400px;
+            height: 100px;
+            margin: 0 10px;
+        }
+        .footer-images img:first-child {
+            width: 150px;
+            height: 90px;
+            }
+        #btnTop {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 10px; /* Pontas arredondadas */
+            padding: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: opacity 0.2s; /* Transição suave para a opacidade */
+        }
+
+        #btnTop:hover {
+            background-color: #555;
+        }
+        /* Adicionando um estilo de transição para quando o botão desaparecer */
+        #btnTop.fade-out {
+            opacity: 0;
+        }
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            line-height: 1.6;
+        }
+    
+        /* Cabeçalho */
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 40px 0px;
+            margin-bottom: 20px;
+        }
+    
+        h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+    
+        /* Conteúdo principal */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .container-hight {
+            text-align: center;
+            color:#fff;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 100px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            height: 100px;
+        }
+        
+        h2 {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    
+        p {
+            color: #555;
+        }
+    
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+        }
+    
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #777;
+        }
+    
+        /* Menu */
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            z-index: 1000;
+        }
+    
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+    
+        .menu li {
+            margin: 0 10px;
+        }
+    
+        .menu li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+    
+        .menu li a:hover {
+            background-color: #555;
+        }
+    
+        /* Adiciona o efeito de deslizamento suave */
+        html {
+            scroll-behavior: smooth;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <li><a href="#intro">Introdução</a></li>
+            <li><a href="#basico">Comandos Básicos</a></li>
+            <li><a href="#operadorfun">Operadores e Funções</a></li>
+            <li><a href="#operadormat">Operadores Matemáticos</a></li>
+            <li><a href="#operadorcomp">Operadores de Comparação</a></li>
+            <li><a href="#avancado">Comandos Avançados</a></li>
+            <li><a href="#indices">Índices</a></li>
+            <li><a href="#views">Views</a></li>
+        </ul>
+    </div>
+    <div id="intro">
+        <br>
+    </div>
+    <div  class="container-hight">
+        <h1>Introdução ao Trabalho com SQL</h1>
+    </div>
+    <div class="container">
+        <p>SQL, ou Linguagem de Consulta Estruturada, é uma linguagem de programação projetada para gerir e manipular dados armazenados em bancos de dados relacionais. Ele fornece uma forma padrão de aceder, atualizar e gerir bancos de dados.</p>
+        <p>Esta linguagem é amplamente utilizada em todo o mundo devido à sua simplicidade e eficácia na realização de uma variedade de operações em bancos de dados. Com o SQL, é possível realizar tarefas como:</p>
+        <ol>
+            <li>Consultar Dados</li>
+            <li>Atualizar Dados</li>
+            <li>Gerir Esquema</li>
+            <li>Gerir Permissões de Acesso</li>
+        </ol>
+        <p>Em resumo, o SQL é uma ferramenta poderosa para trabalhar com bancos de dados relacionais, permitindo aos desenvolvedores e administradores de banco de dados realizar uma ampla gama de operações para armazenar, recuperar e gerir dados de forma eficiente.</p>
+    </div>
+    <div id="basico">
+        <br>
+    </div>
+    <div  class="container-hight">
+        <h1>Comandos Básicos em SQL</h1>
+    </div>
+    <div class="container">
+        <h2>Comandos Básicos</h2>
+        
+        <div class="group">
+            <h3>SELECT</h3>
+            <p>Usado para selecionar dados de uma tabela.</p>
+            <pre><code>SELECT * FROM produtos;</code></pre>
+            <p>Seleciona todos os registros da tabela 'produtos'.</p>
+        </div>
+    
+        <div class="group">
+            <h3>FROM</h3>
+            <p>Especifica a tabela da qual os dados serão selecionados.</p>
+            <pre><code>SELECT * FROM clientes;</code></pre>
+            <p>Seleciona todos os registros da tabela 'clientes'.</p>
+        </div>
+    
+        <div class="group">
+            <h3>WHERE</h3>
+            <p>Filtra os resultados com base em uma condição específica.</p>
+            <pre><code>SELECT * FROM pedidos WHERE valor_total > 100;</code></pre>
+            <p>Seleciona pedidos onde o valor total é superior a 100.</p>
+        </div>
+    
+        <div class="group">
+            <h3>ORDER BY</h3>
+            <p>Ordena os resultados em uma ordem específica (ascendente ou descendente).</p>
+            <pre><code>SELECT * FROM vendas ORDER BY data DESC;</code></pre>
+            <p>Seleciona vendas ordenadas pela data em ordem descendente.</p>
+        </div>
+    
+        <div class="group">
+            <h3>AND</h3>
+            <p>Combina duas ou mais condições em uma instrução SELECT.</p>
+            <pre><code>SELECT * FROM clientes WHERE idade > 30 AND pais = 'Brasil';</code></pre>
+            <p>Seleciona clientes com idade acima de 30 anos e que sejam do Brasil.</p>
+        </div>
+    
+        <div id="operadorfun" class="group">
+            <h3>OR</h3>
+            <p>Retorna registros se qualquer uma das condições especificadas for verdadeira.</p>
+            <pre><code>SELECT * FROM produtos WHERE categoria = 'Eletrônicos' OR preco > 500;</code></pre>
+            <p>Seleciona produtos na categoria 'Eletrônicos' ou com preço superior a 500.</p>
+        </div>
+    </div>
+    
+
+    <div class="container">
+        <h2>Operadores e Funções</h2>
+        
+        <div class="group">
+            <h3>BETWEEN</h3>
+            <p>Filtra os resultados para que estejam dentro de um intervalo específico.</p>
+            <pre><code>SELECT * FROM vendas WHERE quantidade BETWEEN 100 AND 200;</code></pre>
+            <p>Seleciona vendas onde a quantidade está entre 100 e 200.</p>
+        </div>
+        
+        <div class="group">
+            <h3>NOT BETWEEN</h3>
+            <p>Filtra os resultados para que estejam fora de um intervalo específico.</p>
+            <pre><code>SELECT * FROM vendas WHERE quantidade NOT BETWEEN 100 AND 200;</code></pre>
+            <p>Seleciona vendas onde a quantidade não está entre 100 e 200.</p>
+        </div>
+        
+        <div class="group">
+            <h3>IN</h3>
+            <p>Verifica se um valor está presente em uma lista de valores.</p>
+            <pre><code>SELECT * FROM clientes WHERE país IN ('Brasil', 'Portugal', 'Argentina');</code></pre>
+            <p>Seleciona clientes cujo país está entre 'Brasil', 'Portugal' ou 'Argentina'.</p>
+        </div>
+        
+        <div class="group">
+            <h3>NOT IN</h3>
+            <p>Verifica se um valor não está presente em uma lista de valores.</p>
+            <pre><code>SELECT * FROM clientes WHERE país NOT IN ('Brasil', 'Portugal', 'Argentina');</code></pre>
+            <p>Seleciona clientes cujo país não está entre 'Brasil', 'Portugal' ou 'Argentina'.</p>
+        </div>
+        
+        <div class="group">
+            <h3>IS NULL</h3>
+            <p>Verifica se um valor é nulo.</p>
+            <pre><code>SELECT * FROM clientes WHERE email IS NULL;</code></pre>
+            <p>Seleciona todos os registros da tabela 'clientes' onde o campo de e-mail está vazio ou é nulo (NULL).</p>
+        </div>
+        
+        <div class="group">
+            <h3>IS NOT NULL</h3>
+            <p>Verifica se um valor não é nulo.</p>
+            <pre><code>SELECT * FROM clientes WHERE email IS NOT NULL;</code></pre>
+            <p>Seleciona todos os registros da tabela 'clientes' onde o campo de e-mail não está vazio ou nulo (NULL).</p>
+        </div>
+        
+        <div id="operadormat" class="group">
+            <h3>LIKE</h3>
+            <p>Procura por padrões em uma string.</p>
+            <pre><code>SELECT * FROM clientes WHERE nome LIKE '%Silva%';</code></pre>
+            <p>Seleciona clientes cujo nome contém a string 'Silva'.</p>
+        </div>
+    </div>
+    <div id="operadorcomp" class="container">
+        <h2>Operadores Matemáticos</h2>
+        <div class="group">
+            <p>+, -, *, /, %, ||</p>
+            <pre><code>SELECT preço * quantidade AS total FROM vendas;</code></pre>
+            <p>Calcula o total de cada venda multiplicando o preço pela quantidade.</p>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Operadores de Comparação</h2>
+        <div class="group">
+            <h3>COUNT</h3>
+            <p>Retorna o número de linhas que correspondem a uma condição especificada.</p>
+            <pre><code>SELECT COUNT(*) AS total_clientes FROM clientes;</code></pre>
+            <p>Conta o número de clientes na tabela 'clientes'.</p>
+            </div>
+        
+            <div class="group">
+            <h3>MAX</h3>
+            <p>Retorna o valor máximo de uma coluna.</p>
+            <pre><code>SELECT MAX(idade) AS idade_maxima FROM clientes;</code></pre>
+            <p>Retorna a idade máxima dos clientes na tabela 'clientes'.</p>
+            </div>
+        
+            <div class="group">
+            <h3>MIN</h3>
+            <p>Retorna o valor mínimo de uma coluna.</p>
+            <pre><code>SELECT MIN(idade) AS idade_minima FROM clientes;</code></pre>
+            <p>Retorna a idade mínima dos clientes na tabela 'clientes'.</p>
+            </div>
+        
+            <div class="group">
+            <h3>AVG</h3>
+            <p>Retorna a média dos valores de uma coluna.</p>
+            <pre><code>SELECT AVG(idade) AS idade_media FROM clientes;</code></pre>
+            <p>Retorna a idade média dos clientes na tabela 'clientes'.</p>
+            </div>
+        
+            <div class="group">
+            <h3>SUM</h3>
+            <p>Retorna a soma dos valores de uma coluna.</p>
+            <pre><code>SELECT SUM(valor) AS total_vendas FROM vendas;</code></pre>
+            <p>Retorna o total de vendas na tabela 'vendas'.</p>
+            </div>
+        
+            <div class="group">
+            <h3>ORDER BY</h3>
+            <p>Ordena os resultados por uma ou mais colunas.</p>
+            <pre><code>SELECT * FROM clientes ORDER BY nome ASC;</code></pre>
+            <p>Ordena os clientes por nome em ordem alfabética crescente.</p>
+            </div>
+        
+            <div class="group">
+            <h3>GROUP BY</h3>
+            <p>Agrupa os resultados por uma ou mais colunas.</p>
+            <pre><code>SELECT país, COUNT(*) AS total_clientes FROM clientes GROUP BY país;</code></pre>
+            <p>Agrupa os clientes por país e conta o número de clientes em cada país.</p>
+            </div>
+        
+            <div class="group">
+            <h3>HAVING</h3>
+            <p>Filtra os resultados após o agrupamento.</p>
+            <pre><code>SELECT país, COUNT(*) AS total_clientes FROM clientes GROUP BY país HAVING COUNT(*) > 10;</code></pre>
+            <p>Agrupa os clientes por país e conta o número de clientes em cada país. Seleciona apenas os países com mais de 10 clientes.</p>
+            </div>
+        
+            <div class="group">
+            <h3>DISTINCT</h3>
+            <p>Retorna apenas linhas únicas.</p>
+            <pre><code>SELECT DISTINCT país FROM clientes;</code></pre>
+            <p>Retorna apenas os países distintos na tabela 'clientes'.</p>
+            </div>
+        
+            <div class="group">
+            <h3>SUBSELECT</h3>
+            <p>Uma consulta dentro de outra consulta.</p>
+            <pre><code>SELECT * FROM clientes WHERE país IN (SELECT país FROM vendas);</code></pre>
+            <p>Seleciona todos os clientes cujos países estão presentes na tabela 'vendas'.</p>
+            </div>
+    </div>
+    <div id="avancado">
+        <br>
+    </div>
+    <div  class="container-hight">
+        <h1>Comandos SQL</h1>
+    </div>
+    
+    <!-- Conteúdo principal -->
+    <div class="container">
+        <h2>SELECT</h2>
+        <p>Para consultar dados de uma tabela, usamos o comando SELECT. Por exemplo:</p>
+        <pre><code>SELECT * FROM tabela</code></pre>
+        <p>Isso retorna todos os dados da tabela "tabela".</p>
+        
+        <h3>Exemplo:</h3>
+        <pre><code>SELECT * FROM clientes</code></pre>
+        <p>Isso retorna todos os dados da tabela "clientes".</p>
+    </div>
+    
+    <div class="container">
+        <h2>INSERT INTO</h2>
+        <p>Para inserir novos dados em uma tabela, utilizamos o comando INSERT INTO. Por exemplo:</p>
+        <pre><code>INSERT INTO tabela (coluna1, coluna2, coluna3) VALUES (valor1, valor2, valor3)</code></pre>
+        <p>Isso adiciona um novo registro à tabela "tabela" com os valores especificados nas colunas.</p>
+        
+        <h3>Exemplo:</h3>
+        <pre><code>INSERT INTO clientes (nome, idade, email) VALUES ('João', 30, 'joao@email.com')</code></pre>
+        <p>Isso adiciona um novo cliente à tabela "clientes" com o nome "João", idade "30" e email "joao@email.com".</p>
+    </div>
+    
+    <div class="container">
+        <h2>UPDATE</h2>
+        <p>Para atualizar dados existentes em uma tabela, usamos o comando UPDATE. Por exemplo:</p>
+        <pre><code>UPDATE tabela SET coluna = valor WHERE condição</code></pre>
+        <p>Isso atualiza os dados na coluna especificada na tabela com base na condição fornecida.</p>
+        
+        <h3>Exemplo:</h3>
+        <pre><code>UPDATE clientes SET idade = 35 WHERE nome = 'João'</code></pre>
+        <p>Isso atualiza a idade do cliente chamado "João" para 35 anos na tabela "clientes".</p>
+    </div>
+    
+    <div class="container">
+        <h2>DELETE</h2>
+        <p>Para excluir registros de uma tabela, usamos o comando DELETE. Por exemplo:</p>
+        <pre><code>DELETE FROM tabela WHERE condição</code></pre>
+        <p>Isso exclui os registros da tabela com base na condição especificada.</p>
+        
+        <h3>Exemplo:</h3>
+        <pre><code>DELETE FROM clientes WHERE idade > 60</code></pre>
+        <p>Isso exclui todos os clientes com idade superior a 60 anos da tabela "clientes".</p>
+    </div>
+    
+    <div class="container">
+        <h2>CREATE TABLE</h2>
+        <p>Para criar uma nova tabela, utilizamos o comando CREATE TABLE. Por exemplo:</p>
+        <pre><code>CREATE TABLE tabela (
+        coluna1 tipo1,
+        coluna2 tipo2,
+        coluna3 tipo3
+        )</code></pre>
+        <p>Isso cria uma nova tabela chamada "tabela" com as colunas e tipos especificados.</p>
+        
+        <h3>Exemplo:</h3>
+        <pre><code>CREATE TABLE produtos (
+        id INT PRIMARY KEY,
+        nome VARCHAR(100),
+        preco DECIMAL(10, 2)
+        )</code></pre>
+        <p>Isso cria uma nova tabela chamada "produtos" com as colunas "id", "nome" e "preco".</p>
+    </div>
+    
+    <div class="container">
+        <h2>ALTER TABLE</h2>
+        <p>O comando ALTER TABLE é utilizado para modificar a estrutura de uma tabela existente no banco de dados. Ele permite adicionar, modificar ou excluir colunas da tabela, além de adicionar ou remover restrições, como chaves primárias e estrangeiras.</p>
+        
+        <p>Aqui está a sintaxe completa do comando ALTER TABLE:</p>
+        <pre><code>ALTER TABLE nome_tabela
+        ADD COLUMN nome_atributo_1 tipo_1 [{restrições}] 
+          [{, nome_atributo_n  tipo_n [{restrições}]}]
+          |
+        MODIFY COLUMN nome_atributo_1 tipo_1 [{restrições}] 
+          [{, nome_atributo_n  tipo_n [{restrições}]}]
+          |
+        DROP COLUMN nome_atributo_1 
+          [{, nome_atributo_n }]
+          |
+        ADD CONSTRAINT nome_RI_1 def_RI_1
+          [{, nome_RI_n def_RI_n}]
+          |
+        DROP CONSTRAINT nome_RI_1
+          [{, nome_RI_n}]
+          |
+        [ADD|DROP] [PRIMARY KEY ...|FOREIGN KEY ...];</code></pre>
+        
+        <p>Agora vamos ver exemplos de cada variante de uso do comando ALTER TABLE:</p>
+        
+        <h3>Adicionar uma nova coluna:</h3>
+        <pre><code>ALTER TABLE clientes
+        ADD COLUMN telefone VARCHAR(15);</code></pre>
+        <p>Este comando adiciona uma nova coluna chamada "telefone" à tabela "clientes", permitindo armazenar os números de telefone dos clientes.</p>
+        
+        <h3>Modificar o tipo de uma coluna:</h3>
+        <pre><code>ALTER TABLE clientes
+        MODIFY COLUMN idade INT;</code></pre>
+        <p>Este comando modifica o tipo de dados da coluna "idade" na tabela "clientes" para um tipo inteiro.</p>
+        
+        <h3>Remover uma coluna:</h3>
+        <pre><code>ALTER TABLE clientes
+        DROP COLUMN email;</code></pre>
+        <p>Este comando remove a coluna "email" da tabela "clientes", excluindo-a permanentemente da estrutura da tabela.</p>
+        
+        <h3>Adicionar uma restrição de chave estrangeira:</h3>
+        <pre><code>ALTER TABLE pedidos
+        ADD CONSTRAINT fk_cliente_id
+        FOREIGN KEY (cliente_id) REFERENCES clientes(id);</code></pre>
+        <p>Este comando adiciona uma restrição de chave estrangeira na tabela "pedidos", relacionando a coluna "cliente_id" com a coluna "id" na tabela "clientes".</p>
+        
+        <h3>Remover uma restrição de chave estrangeira:</h3>
+        <pre><code>ALTER TABLE pedidos
+        DROP CONSTRAINT fk_cliente_id;</code></pre>
+        <p>Este comando remove a restrição de chave estrangeira chamada "fk_cliente_id" da tabela "pedidos".</p>
+        
+        <h3>Adicionar uma chave primária:</h3>
+        <pre><code>ALTER TABLE produtos
+        ADD PRIMARY KEY (id);</code></pre>
+        <p>Este comando adiciona uma chave primária à coluna "id" na tabela "produtos", garantindo que cada registro tenha um valor único para essa coluna.</p>
+        
+        <h3>Remover uma chave primária:</h3>
+        <pre><code>ALTER TABLE produtos
+        DROP PRIMARY KEY;</code></pre>
+        <p>Este comando remove a chave primária da tabela "produtos", se ela existir.</p>
+    </div>
+    <div class="container">
+        <h2>UNION</h2>
+        <p>O operador UNION é usado para combinar o resultado de duas ou mais instruções SELECT em um único conjunto de resultados.</p>
+        <pre><code>SELECT coluna1 FROM tabela1
+        UNION
+        SELECT coluna2 FROM tabela2;</code></pre>
+        <p>Isso combina os resultados das consultas selecionando "coluna1" da "tabela1" e "coluna2" da "tabela2".</p>
+    </div>
+    
+    <div class="container">
+        <h2>INNER JOIN</h2>
+        <p>O INNER JOIN é usado para combinar linhas de duas ou mais tabelas com base em uma condição de junção especificada.</p>
+        <pre><code>SELECT colunas
+        FROM tabela1
+        INNER JOIN tabela2 ON tabela1.coluna = tabela2.coluna;</code></pre>
+        <p>Isso combina as linhas das tabelas "tabela1" e "tabela2" onde os valores das colunas correspondentes são iguais.</p>
+        <br>
+
+        <h2>NATURAL JOIN</h2>
+        <p>O NATURAL JOIN é usado para combinar linhas de duas tabelas com base em todas as colunas com o mesmo nome.</p>
+        <pre><code>SELECT colunas
+        FROM tabela1
+        NATURAL JOIN tabela2;</code></pre>
+        <p>Isso combina as linhas das tabelas "tabela1" e "tabela2" onde todas as colunas com o mesmo nome têm valores iguais.</p>
+        <br>
+
+        <h2>LEFT JOIN</h2>
+        <p>O LEFT JOIN (também conhecido como LEFT OUTER JOIN) retorna todas as linhas da tabela à esquerda e as linhas correspondentes da tabela à direita. Se não houver correspondência, retorna NULL nas colunas da tabela à direita.</p>
+        <pre><code>SELECT colunas
+        FROM tabela1
+        LEFT JOIN tabela2 ON tabela1.coluna = tabela2.coluna;</code></pre>
+        <p>Isso retorna todas as linhas de "tabela1" e as linhas correspondentes de "tabela2". Se não houver correspondência, as colunas de "tabela2" serão NULL.</p>
+        <br>
+
+        <h2>RIGHT JOIN</h2>
+        <p>O RIGHT JOIN (também conhecido como RIGHT OUTER JOIN) retorna todas as linhas da tabela à direita e as linhas correspondentes da tabela à esquerda. Se não houver correspondência, retorna NULL nas colunas da tabela à esquerda.</p>
+        <pre><code>SELECT colunas
+        FROM tabela1
+        RIGHT JOIN tabela2 ON tabela1.coluna = tabela2.coluna;</code></pre>
+        <p>Isso retorna todas as linhas de "tabela2" e as linhas correspondentes de "tabela1". Se não houver correspondência, as colunas de "tabela1" serão NULL.</p>
+        <br>
+        
+        <h2>FULL JOIN</h2>
+        <p>O FULL JOIN (também conhecido como FULL OUTER JOIN) retorna todas as linhas quando há uma correspondência em uma das tabelas. Se não houver correspondência, as colunas da outra tabela serão NULL.</p>
+        <pre><code>SELECT colunas
+        FROM tabela1
+        FULL JOIN tabela2 ON tabela1.coluna = tabela2.coluna;</code></pre>
+        <p>Isso retorna todas as linhas de ambas as tabelas. Se não houver correspondência, as colunas da tabela sem correspondência serão NULL.</p>
+    </div>
+    
+    <div class="container">
+        <h2>EXISTS</h2>
+        <p>O EXISTS é usado para verificar a existência de qualquer registro em uma subconsulta.</p>
+        <pre><code>SELECT colunas
+        FROM tabela1
+        WHERE EXISTS (SELECT * FROM tabela2 WHERE condição);</code></pre>
+        <p>Isso retorna linhas da "tabela1" onde uma subconsulta para a "tabela2" retorna pelo menos um resultado.</p>
+    </div>
+    
+    <div class="container">
+        <h2>LIMIT</h2>
+        <p>O LIMIT é usado para limitar o número de registros retornados por uma consulta.</p>
+        <pre><code>SELECT colunas
+        FROM tabela
+        LIMIT valor;</code></pre>
+        <p>Isso limita o número de linhas retornadas pela consulta ao valor especificado.</p>
+    </div>
+    
+    <div class="container">
+        <h2>GROUP BY</h2>
+        <p>O GROUP BY é usado para agrupar registros que têm o mesmo valor em uma ou mais colunas.</p>
+        <pre><code>SELECT colunas
+        FROM tabela
+        GROUP BY coluna;</code></pre>
+        <p>Isso agrupa os registros da tabela com base nos valores da coluna especificada.</p>
+    </div>
+    
+    <div class="container">
+        <h2>HAVING</h2>
+        <p>O HAVING é usado em conjunto com o GROUP BY para filtrar registros agrupados.</p>
+        <pre><code>SELECT colunas
+        FROM tabela
+        GROUP BY coluna
+        HAVING condição;</code></pre>
+        <p>Isso filtra os registros agrupados com base na condição especificada.</p>
+    </div>
+
+    <div id="indices">
+        <br>
+    </div>
+    <div class="container-hight">
+        <h1>ÍNDICES</h1>
+    </div>
+    <div class="container">
+        <h2>Índices em base de dados são estruturas que melhoram a velocidade de recuperação de dados. Eles funcionam como tabelas auxiliares que contêm chaves de busca (normalmente valores de colunas) e ponteiros para as linhas correspondentes em uma tabela. Quando você cria um índice em uma tabela, você está efetivamente pré-processando as consultas de busca, tornando-as mais eficientes.</h2>
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="group">
+                <h3>Criar um Índice</h3>
+                <p>Para criar um índice em uma tabela, você usa o comando CREATE INDEX. Por exemplo:</p>
+                <pre><code>CREATE INDEX idx_nome_indice ON tabela (coluna);</code></pre>
+                <p>Isso cria um índice chamado "idx_nome_indice" na tabela "tabela" para a coluna especificada.</p>
+            </div>
+            <div class="group">
+                <h3>Remover um Índice</h3>
+                <p>Para remover um índice de uma tabela, você usa o comando DROP INDEX. Por exemplo:</p>
+                <pre><code>DROP INDEX idx_nome_indice;</code></pre>
+                <p>Isso remove o índice chamado "idx_nome_indice" da tabela.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="views">
+        <br>
+    </div>
+    <div  class="container-hight">
+        <h1>VIEWS</h1>
+    </div>
+    <div class="container">
+        <h2>Views em base de dados são consultas SQL armazenadas que podem ser tratadas como tabelas virtuais. Elas permitem que você armazene uma consulta complexa em forma de tabela virtual dentro do banco de dados. As views são úteis quando você tem consultas frequentes e complexas que precisam ser executadas repetidamente. Em vez de escrever a consulta repetidamente, você pode criar uma view e consultá-la sempre que precisar.</h2>
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="group">
+                <h3>Criar uma View</h3>
+                <p>Para criar uma view em um banco de dados, você usa o comando CREATE VIEW. Por exemplo:</p>
+                <pre><code>CREATE VIEW nome_view AS
+    SELECT colunas
+    FROM tabela
+    WHERE condição;</code></pre>
+                <p>Isso cria uma view chamada "nome_view" que contém os resultados da consulta especificada.</p>
+            </div>
+            <div class="group">
+                <h3>Remover uma View</h3>
+                <p>Para remover uma view de um banco de dados, você usa o comando DROP VIEW. Por exemplo:</p>
+                <pre><code>DROP VIEW nome_view;</code></pre>
+                <p>Isso remove a view chamada "nome_view" do banco de dados.</p>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Botão "Voltar para o topo" -->
+    <button onclick="topFunction()" id="btnTop" title="Voltar para o topo">Topo</button>
+
+    <footer>
+        <p>Trabalho realizado por Diogo Marcos, Turma 12ºITM1, disciplina Implementação e Exploração de Bases de Dados, curso de Informática e Tecnologias Multimédia, ano letivo 2023/2024</p>
+        <div class="footer-images">
+            <img src="Colegio-Gaia-Logo_white-1.png" alt="logo colegio de gaia">
+            <img src="OriginalSize$2023_11_03_14_56_15_1484353 (1).png" alt="pessoas">
+        </div>
+    </footer>
+    <script>
+        // Função para rolar até o topo da página
+        function topFunction() {
+            // Verifica se o navegador suporta a propriedade 'scrollTo'
+            if (window.scrollTo) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // Comportamento suave para uma rolagem suave
+                });
+            } else {
+                // Caso o navegador não suporte 'scrollTo', faz um scroll abrupto
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // Função para exibir ou ocultar o botão "Voltar para o topo" com base no scroll da página
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("btnTop").classList.remove("fade-out"); // Remove a classe "fade-out"
+                document.getElementById("btnTop").style.display = "block"; // Torna o botão visível
+            } else {
+                // Adiciona a classe "fade-out" para aplicar a transição de opacidade
+                document.getElementById("btnTop").classList.add("fade-out");
+                // Define um tempo para que a transição tenha efeito antes de ocultar o botão
+                setTimeout(function() {
+                    document.getElementById("btnTop").style.display = "none"; // Torna o botão invisível
+                }, 500); // Tempo correspondente à duração da transição em milissegundos (0.5 segundos)
+            }
+        }
+    </script>
+</body>
+</html>
+
